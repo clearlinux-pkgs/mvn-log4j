@@ -4,17 +4,22 @@
 #
 Name     : mvn-log4j
 Version  : 1.2.12
-Release  : 2
+Release  : 3
 URL      : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source0  : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source1  : https://repo1.maven.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.jar
 Source2  : https://repo1.maven.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.pom
-Source3  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
-Source4  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom
+Source3  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.jar
+Source4  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.pom
+Source5  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
+Source6  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-log4j-data = %{version}-%{release}
+Requires: mvn-log4j-license = %{version}-%{release}
+BuildRequires : apache-ant
+BuildRequires : buildreq-mvn
 
 %description
 No detailed description available
@@ -27,22 +32,39 @@ Group: Data
 data components for the mvn-log4j package.
 
 
+%package license
+Summary: license components for the mvn-log4j package.
+Group: Default
+
+%description license
+license components for the mvn-log4j package.
+
+
 %prep
+%setup -q -n log4j-1_2_12
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-log4j
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-log4j/LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.pom
 
 
 %files
@@ -52,5 +74,11 @@ cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.jar
 /usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.pom
+/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar
+/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.pom
 /usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
 /usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-log4j/LICENSE.txt
