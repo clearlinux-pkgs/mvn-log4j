@@ -4,15 +4,17 @@
 #
 Name     : mvn-log4j
 Version  : 1.2.12
-Release  : 3
+Release  : 4
 URL      : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source0  : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source1  : https://repo1.maven.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.jar
 Source2  : https://repo1.maven.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.pom
-Source3  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.jar
-Source4  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.pom
-Source5  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
-Source6  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom
+Source3  : https://repo1.maven.org/maven2/log4j/log4j/1.2.14/log4j-1.2.14.jar
+Source4  : https://repo1.maven.org/maven2/log4j/log4j/1.2.14/log4j-1.2.14.pom
+Source5  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.jar
+Source6  : https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.pom
+Source7  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
+Source8  : https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -54,17 +56,23 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12
 cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.14
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.14
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.pom
 
 
 %files
@@ -74,6 +82,8 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.jar
 /usr/share/java/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.pom
+/usr/share/java/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar
+/usr/share/java/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.pom
 /usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar
 /usr/share/java/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.pom
 /usr/share/java/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar
