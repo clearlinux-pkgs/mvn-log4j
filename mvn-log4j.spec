@@ -4,7 +4,7 @@
 #
 Name     : mvn-log4j
 Version  : 1.2.12
-Release  : 4
+Release  : 5
 URL      : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source0  : https://github.com/apache/log4j/archive/v1_2_12.tar.gz
 Source1  : https://repo1.maven.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12.jar
